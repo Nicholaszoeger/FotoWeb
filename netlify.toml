@@ -1,0 +1,16 @@
+# netlify.toml
+
+[build]
+  publish = "dist" # La carpeta donde Astro genera los archivos finales
+  command = "npm run build"
+
+# Configuración de Netlify Identity
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/admin/"
+  to = "/admin/index.html"
+  status = 200
