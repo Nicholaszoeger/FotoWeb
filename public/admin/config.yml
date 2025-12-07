@@ -1,0 +1,68 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Fallback para archivos locales (opcional pero recomendado)
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+# Cloudinary para imágenes (principal)
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: TU_CLOUD_NAME
+    api_key: TU_API_KEY
+
+publish_mode: editorial_workflow
+site_url: "https://bittfilms.es"
+display_url: "https://bittfilms.es"
+
+collections:
+  - name: "portfolio"
+    label: "Proyectos de Portafolio"
+    folder: "src/content/portfolio"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - label: "Título del Proyecto"
+        name: "title"
+        widget: "string"
+      
+      - label: "Fecha del Proyecto"
+        name: "date"
+        widget: "datetime"
+      
+      - label: "Imagen Principal"
+        name: "thumbnail"
+        widget: "image"
+      
+      - label: "Galería"
+        name: "gallery"
+        widget: "list"
+        required: false
+        field: { label: "Imagen", name: "image", widget: "image" }
+      
+      - label: "Video de Vimeo"
+        name: "vimeo_url"
+        widget: "string"
+        required: false
+      
+      - label: "Categoría"
+        name: "category"
+        widget: "select"
+        options: ["Publicidad", "Documental", "Ficción", "Videoclip"]
+        required: false
+      
+      - label: "Cliente"
+        name: "client"
+        widget: "string"
+        required: false
+      
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+      
+      - label: "Descripción"
+        name: "body"
+        widget: "markdown"

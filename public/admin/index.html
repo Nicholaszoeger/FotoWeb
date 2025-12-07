@@ -3,10 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Administración del Portafolio</title>
+  <title>Panel de Administración</title>
 </head>
 <body>
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
-  <script src="config.js"></script>
 </body>
 </html>
+```
+
+## 4. Estructura de carpetas completa
+```
+tu-proyecto/
+├── public/
+│   ├── admin/
+│   │   ├── config.yml       ← AQUÍ
+│   │   └── index.html       ← Y AQUÍ
+│   └── images/
+│       └── uploads/          ← Carpeta para las imágenes
+├── src/
+│   └── content/
+│       └── blog/             ← Carpeta para tus posts
+└── ...
