@@ -19,15 +19,28 @@ const { title = "Bitt Films" } = Astro.props;
 <body>
   <slot />
   
-  <!-- Script para manejar Identity -->
+  <!-- Script para manejar Identity e invitaciones -->
   <script is:inline>
     if (window.netlifyIdentity) {
+      // Inicializar el widget
       window.netlifyIdentity.on("init", user => {
+        // Si hay un token de invitación en la URL, abrir automáticamente
+        if (window.location.hash.includes('invite_token')) {
+          window.netlifyIdentity.open();
+        }
+        
+        // Redirigir después del login
         if (!user) {
           window.netlifyIdentity.on("login", () => {
             document.location.href = "/admin/";
           });
         }
+      });
+      
+      // Cerrar el widget después de completar el registro por invitación
+      window.netlifyIdentity.on("signup", () => {
+        window.netlifyIdentity.close();
+        document.location.href = "/admin/";
       });
     }
   </script>

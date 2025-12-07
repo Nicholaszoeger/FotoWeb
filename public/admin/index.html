@@ -16,10 +16,17 @@
   <!-- Netlify CMS -->
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
   
-  <!-- Manejar redirects de Identity -->
+  <!-- Configuración de Identity -->
   <script>
     if (window.netlifyIdentity) {
+      // Ocultar el botón de signup
       window.netlifyIdentity.on("init", user => {
+        // Si viene de una invitación, abrir automáticamente
+        if (window.location.hash.includes('invite_token')) {
+          window.netlifyIdentity.open('signup');
+        }
+        
+        // Redirigir después del login
         if (!user) {
           window.netlifyIdentity.on("login", () => {
             document.location.href = "/admin/";
@@ -28,5 +35,17 @@
       });
     }
   </script>
+  
+  <!-- CSS personalizado para ocultar signup -->
+  <style>
+    /* Ocultar botón de registro en el widget */
+    [data-netlify-identity-button="signup"] {
+      display: none !important;
+    }
+    
+    .netlify-identity-signup {
+      display: none !important;
+    }
+  </style>
 </body>
 </html>
