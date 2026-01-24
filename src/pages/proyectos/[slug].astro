@@ -1,0 +1,281 @@
+---
+// src/pages/proyectos/[slug].astro
+// Página dinámica que muestra los detalles de un proyecto específico
+
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import Gallery from "../../components/Gallery.astro";
+
+// En producción, estos datos vendrían de una colección de Astro o CMS
+// Este es un ejemplo de cómo manejar datos de proyectos
+const projectsData: Record<string, any> = {
+  "boda-costa-mediterranea": {
+    title: "Boda en la Costa Mediterránea",
+    category: "Bodas",
+    date: "Junio 2024",
+    client: "Ana & Miguel",
+    location: "Altea, Alicante",
+    description:
+      "Una ceremonia íntima junto al mar con luz natural perfecta. Ana y Miguel eligieron la costa mediterránea para celebrar su amor rodeados de sus seres más queridos. La ceremonia al atardecer, con el mar de fondo, creó momentos mágicos que quedaron inmortalizados en estas imágenes.",
+    challenge:
+      "El principal desafío fue trabajar con la luz cambiante del atardecer mientras capturábamos tanto la ceremonia como los momentos espontáneos de los invitados. La brisa marina añadió un elemento de imprevisibilidad que aprovechamos creativamente.",
+    solution:
+      "Planificamos meticulosamente los tiempos para aprovechar la golden hour. Utilizamos luz natural exclusivamente, sin flashes, para mantener la atmósfera romántica y natural del momento.",
+    images: [
+      {
+        src: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=800&fit=crop",
+        alt: "Ceremonia junto al mar",
+        caption: "La ceremonia al atardecer",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800&h=800&fit=crop",
+        alt: "Detalles decoración",
+        caption: "Detalles de la decoración",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&h=800&fit=crop",
+        alt: "Retrato de pareja",
+        caption: "Retrato de los novios",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&h=800&fit=crop",
+        alt: "Puesta de sol",
+        caption: "Puesta de sol mediterránea",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=800&h=800&fit=crop",
+        alt: "Celebración",
+        caption: "Momento de celebración",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&h=800&fit=crop",
+        alt: "Detalles florales",
+        caption: "Arreglos florales",
+      },
+    ],
+  },
+  "producto-artesanal": {
+    title: "Joyería Artesanal Premium",
+    category: "Producto",
+    date: "Mayo 2024",
+    client: "Atelier Luna",
+    location: "Estudio BittFilms, Madrid",
+    description:
+      "Fotografía de producto para el catálogo y e-commerce de una marca de joyería artesanal de lujo. Cada pieza fue fotografiada para resaltar su artesanía única y materiales premium.",
+    challenge:
+      "Capturar los detalles intrincados y el brillo de las gemas mientras mantenemos un estilo minimalista coherente con la marca. Las piezas pequeñas requieren precisión técnica extrema.",
+    solution:
+      "Utilizamos iluminación de estudio controlada con softboxes y reflectores estratégicos. Empleamos fotografía macro para los detalles y fondos neutros que hacen resaltar cada pieza sin distracciones.",
+    images: [
+      {
+        src: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&h=800&fit=crop",
+        alt: "Collar de oro",
+        caption: "Collar artesanal de oro",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&h=800&fit=crop",
+        alt: "Anillo con diamante",
+        caption: "Anillo con diamante central",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&h=800&fit=crop",
+        alt: "Pulsera plata",
+        caption: "Pulsera de plata oxidada",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&h=800&fit=crop",
+        alt: "Pendientes",
+        caption: "Pendientes colgantes",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=800&h=800&fit=crop",
+        alt: "Colección completa",
+        caption: "Vista de colección",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1603561596112-0a132b757442?w=800&h=800&fit=crop",
+        alt: "Detalle artesanía",
+        caption: "Detalle de artesanía",
+      },
+    ],
+  },
+  "sesion-corporativa-tech": {
+    title: "Sesión Corporativa StartUp Tech",
+    category: "Corporativa",
+    date: "Abril 2024",
+    client: "TechVision Labs",
+    location: "Oficinas TechVision, Madrid",
+    description:
+      "Sesión de fotografía corporativa para startup tecnológica en fase de crecimiento. Retratos profesionales del equipo directivo y fotografía de las nuevas oficinas.",
+    challenge:
+      "Crear retratos profesionales que reflejaran la cultura moderna y dinámica de la empresa, manteniendo la profesionalidad necesaria para uso corporativo y LinkedIn.",
+    solution:
+      "Combinamos retratos formales en estudio improvisado con fotografías candid del equipo trabajando. Usamos luz natural de las amplias ventanas complementada con iluminación artificial suave.",
+    images: [
+      {
+        src: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=800&fit=crop",
+        alt: "Equipo trabajando",
+        caption: "El equipo en acción",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=800&fit=crop",
+        alt: "CEO portrait",
+        caption: "Retrato del CEO",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&h=800&fit=crop",
+        alt: "Reunión equipo",
+        caption: "Sesión de brainstorming",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=800&fit=crop",
+        alt: "Oficinas modernas",
+        caption: "Espacios de trabajo",
+      },
+    ],
+  },
+};
+
+// ESTA ES LA FUNCIÓN IMPORTANTE QUE FALTABA
+// getStaticPaths genera todas las rutas estáticas en build time
+export async function getStaticPaths() {
+  // Obtener todos los slugs de los proyectos
+  const slugs = Object.keys(projectsData);
+
+  // Retornar array de objetos con params
+  return slugs.map((slug) => ({
+    params: { slug },
+  }));
+}
+
+// Obtener el slug de la URL
+const { slug } = Astro.params;
+
+// Obtener datos del proyecto actual
+const project = projectsData[slug || ""];
+
+// Si no existe el proyecto, puedes manejarlo de diferentes formas
+if (!project) {
+  return Astro.redirect("/404");
+}
+---
+
+<Layout title={project.title} description={project.description}>
+  <Header />
+
+  <main>
+    <!-- Navegación de retorno -->
+    <div class="bg-gray-50 border-b border-gray-200">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <a
+          href="/proyectos"
+          class="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors"
+        >
+          <svg
+            class="w-5 h-5 mr-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"></path>
+          </svg>
+          Volver a Proyectos
+        </a>
+      </div>
+    </div>
+
+    <!-- Información del Proyecto -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+        <!-- Categoría -->
+        <p class="text-sm uppercase tracking-wider text-gray-500 mb-4">
+          {project.category}
+        </p>
+
+        <!-- Título -->
+        <h1
+          class="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6"
+        >
+          {project.title}
+        </h1>
+
+        <!-- Meta información -->
+        <div class="flex flex-wrap gap-6 mb-8 text-sm text-gray-600">
+          <div>
+            <span class="font-semibold text-gray-900">Cliente:</span>
+            {project.client}
+          </div>
+          <div>
+            <span class="font-semibold text-gray-900">Fecha:</span>
+            {project.date}
+          </div>
+          <div>
+            <span class="font-semibold text-gray-900">Ubicación:</span>
+            {project.location}
+          </div>
+        </div>
+
+        <!-- Descripción -->
+        <div class="prose prose-lg max-w-none mb-12">
+          <p class="text-gray-700 leading-relaxed text-lg mb-6">
+            {project.description}
+          </p>
+
+          <h2 class="text-2xl font-serif font-semibold text-gray-900 mb-4">
+            El Desafío
+          </h2>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            {project.challenge}
+          </p>
+
+          <h2 class="text-2xl font-serif font-semibold text-gray-900 mb-4">
+            Nuestra Solución
+          </h2>
+          <p class="text-gray-700 leading-relaxed">
+            {project.solution}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galería de Imágenes -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+          class="text-3xl font-serif font-bold text-gray-900 mb-8 text-center"
+        >
+          Galería del Proyecto
+        </h2>
+        <Gallery images={project.images} columns={3} />
+      </div>
+    </section>
+
+    <!-- Proyectos Relacionados o CTA -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-serif font-bold text-gray-900 mb-6">
+          ¿Te Gustó Este Proyecto?
+        </h2>
+        <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+          Podemos crear algo igual de especial para ti
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contacto" class="inline-block bg-gray-900 text-white px-8 py-4
+          text-lg font-medium hover:bg-gray-800 transition-colors" > Iniciar un
+          Proyecto
+        </div>
+
+        <a href="/proyectos" class="inline-block border-2 border-gray-900
+        text-gray-900 px-8 py-4 text-lg font-medium hover:bg-gray-900
+        hover:text-white transition-colors" > Ver Más Proyectos
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<Footer />

@@ -1,0 +1,228 @@
+---
+// src/pages/personales.astro
+// Página de proyectos personales y artísticos del fotógrafo
+
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Gallery from '../components/Gallery.astro';
+
+const personalProjects = [
+  {
+    title: 'Minimalismo Urbano',
+    description: 'Exploración de geometrías y líneas en arquitectura contemporánea',
+    images: [
+      { src: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&h=800&fit=crop', alt: 'Arquitectura minimalista', caption: 'Líneas urbanas' },
+      { src: 'https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?w=800&h=800&fit=crop', alt: 'Edificio moderno', caption: 'Geometría moderna' },
+      { src: 'https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?w=800&h=800&fit=crop', alt: 'Fachada abstracta', caption: 'Abstracción arquitectónica' },
+      { src: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&h=800&fit=crop', alt: 'Detalles urbanos', caption: 'Detalles en la ciudad' }
+    ]
+  },
+  {
+    title: 'Retratos Callejeros',
+    description: 'Historias anónimas capturadas en las calles de Madrid',
+    images: [
+      { src: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&h=800&fit=crop', alt: 'Retrato urbano 1', caption: 'Miradas urbanas' },
+      { src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=800&fit=crop', alt: 'Retrato urbano 2', caption: 'En movimiento' },
+      { src: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&h=800&fit=crop', alt: 'Retrato urbano 3', caption: 'Luz natural' },
+      { src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&h=800&fit=crop', alt: 'Retrato urbano 4', caption: 'Expresiones cotidianas' }
+    ]
+  },
+  {
+    title: 'Naturaleza en Blanco y Negro',
+    description: 'Paisajes y texturas naturales despojados de color',
+    images: [
+      { src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=800&fit=crop', alt: 'Paisaje B&N', caption: 'Montañas eternas' },
+      { src: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&h=800&fit=crop', alt: 'Bosque B&N', caption: 'Bosque neblinoso' },
+      { src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=800&fit=crop', alt: 'Detalle natural', caption: 'Texturas naturales' },
+      { src: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&h=800&fit=crop', alt: 'Horizonte', caption: 'Horizontes infinitos' }
+    ]
+  }
+];
+---
+
+<Layout 
+  title="Proyectos Personales" 
+  description="Explora los proyectos artísticos y personales de BittFilms. Fotografía creativa, experimental y libre sin las restricciones comerciales."
+>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden bg-gray-900">
+      <img
+        src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=1920&h=1080&fit=crop"
+        alt="Proyectos personales artísticos"
+        class="absolute inset-0 w-full h-full object-cover opacity-30"
+      />
+      <div class="relative z-10 text-center text-white px-4 max-w-4xl">
+        <h1 class="text-5xl md:text-7xl font-serif font-bold mb-6">
+          Proyectos Personales
+        </h1>
+        <p class="text-xl md:text-2xl mb-8 font-light leading-relaxed">
+          Donde la creatividad fluye sin límites. Esta es mi voz artística, 
+          libre de restricciones comerciales, explorando temas que me apasionan.
+        </p>
+      </div>
+    </section>
+
+    <!-- Introducción -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center">
+        <h2 class="text-4xl font-serif font-bold text-gray-900 mb-6">
+          Arte sin Compromisos
+        </h2>
+        <p class="text-lg text-gray-600 leading-relaxed mb-6">
+          Estos proyectos nacen de la curiosidad pura y el deseo de experimentar. 
+          Sin briefings de clientes ni expectativas comerciales, solo la cámara, 
+          la luz y mi visión personal del mundo.
+        </p>
+        <p class="text-lg text-gray-600 leading-relaxed">
+          Cada serie representa un momento de mi evolución como fotógrafo, 
+          capturando lo que me inspira en ese instante: desde la geometría urbana 
+          hasta las historias anónimas de las calles.
+        </p>
+      </div>
+    </section>
+
+    <!-- Proyectos Personales -->
+    {personalProjects.map((project, index) => (
+      <section class={`py-20 ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}>
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- Información del proyecto -->
+          <div class="max-w-3xl mx-auto mb-12 text-center">
+            <h2 class="text-4xl font-serif font-bold text-gray-900 mb-4">
+              {project.title}
+            </h2>
+            <p class="text-lg text-gray-600 leading-relaxed">
+              {project.description}
+            </p>
+          </div>
+
+          <!-- Galería -->
+          <div class="max-w-6xl mx-auto">
+            <Gallery images={project.images} columns={2} />
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <!-- Filosofía Personal -->
+    <section class="py-20 bg-gray-900 text-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+        <blockquote class="text-center">
+          <p class="text-2xl md:text-3xl font-serif italic mb-6 leading-relaxed">
+            "La fotografía comercial paga las cuentas, pero la fotografía personal 
+            alimenta el alma. Es en estos proyectos donde encuentro mi verdadera voz 
+            y redefino constantemente lo que significa ver."
+          </p>
+          <footer class="text-gray-400">
+            — Carlos Mendoza, Fotógrafo Principal
+          </footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Proceso Creativo -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <h2 class="text-4xl font-serif font-bold text-gray-900 mb-12 text-center">
+          Mi Proceso Creativo
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="text-5xl mb-4">👁️</div>
+            <h3 class="text-xl font-serif font-semibold mb-3">Observación</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Paso tiempo simplemente mirando, sin cámara. Observo patrones, 
+              luces, texturas. La mejor fotografía comienza en los ojos, no 
+              en el visor.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="text-5xl mb-4">💭</div>
+            <h3 class="text-xl font-serif font-semibold mb-3">Conceptualización</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Desarrollo temas y narrativas visuales. Cada proyecto personal 
+              tiene una historia o pregunta detrás que intento responder a 
+              través de las imágenes.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="text-5xl mb-4">📸</div>
+            <h3 class="text-xl font-serif font-semibold mb-3">Ejecución</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Salgo a capturar cuando la luz y el momento son correctos. 
+              A veces planifico meticulosamente, otras veces simplemente 
+              dejo que suceda.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Inspiraciones -->
+    <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+        <h2 class="text-4xl font-serif font-bold text-gray-900 mb-8 text-center">
+          Influencias e Inspiraciones
+        </h2>
+        
+        <div class="prose prose-lg max-w-none">
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Mi trabajo está profundamente influenciado por maestros del minimalismo 
+            como <em>Hiroshi Sugimoto</em> y <em>Michael Kenna</em>. Su capacidad 
+            para reducir una escena a sus elementos esenciales y crear imágenes 
+            contemplativas me inspira constantemente.
+          </p>
+          
+          <p class="text-gray-700 leading-relaxed mb-6">
+            También encuentro inspiración en la arquitectura moderna, el diseño 
+            escandinavo y el concepto japonés de <em>Ma</em> (espacio negativo). 
+            Creo firmemente que lo que dejamos fuera del encuadre es tan importante 
+            como lo que incluimos.
+          </p>
+
+          <p class="text-gray-700 leading-relaxed">
+            La fotografía callejera de <em>Henri Cartier-Bresson</em> y 
+            <em>Saul Leiter</em> me enseñó a ver el momento decisivo y encontrar 
+            belleza en lo cotidiano. Cada calle es un escenario lleno de historias 
+            esperando ser contadas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-gray-900 text-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-4xl font-serif font-bold mb-6">
+          ¿Interesado en Nuestro Trabajo Comercial?
+        </h2>
+        <p class="text-xl mb-8 max-w-2xl mx-auto">
+          Si bien estos proyectos son personales, el mismo nivel de pasión 
+          y dedicación lo aplicamos a cada proyecto comercial
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/proyectos"
+            class="inline-block bg-white text-gray-900 px-8 py-4 text-lg font-medium hover:bg-gray-100 transition-colors"
+          >
+            Ver Proyectos Comerciales
+          </a>
+          <a
+            href="/contacto"
+            class="inline-block border-2 border-white text-white px-8 py-4 text-lg font-medium hover:bg-white hover:text-gray-900 transition-colors"
+          >
+            Contactar
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>
