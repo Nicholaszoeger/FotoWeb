@@ -1,49 +1,224 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+// src/pages/index.astro
+// Página principal del sitio - Presenta la empresa y sus mejores trabajos
+
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+
+// Proyectos destacados (en producción vendrían de una colección o CMS)
+const featuredProjects = [
+  {
+    title: "Boda en la Costa",
+    category: "Bodas",
+    image:
+      "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop",
+    slug: "boda-costa-mediterranea",
+    description: "Una ceremonia íntima junto al mar con luz natural perfecta",
+  },
+  {
+    title: "Producto Artesanal",
+    category: "Producto",
+    image:
+      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&h=600&fit=crop",
+    slug: "producto-artesanal",
+    description: "Fotografía de producto para marca de joyería artesanal",
+  },
+  {
+    title: "Sesión Corporativa",
+    category: "Corporativa",
+    image:
+      "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=600&fit=crop",
+    slug: "sesion-corporativa-tech",
+    description: "Retratos profesionales para startup tecnológica",
+  },
+];
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+<Layout
+  title="Inicio"
+  description="BittFilms - Estudio de fotografía profesional especializado en bodas, eventos, producto y fotografía corporativa en Madrid"
+>
+  <Header />
+
+  <main>
+    <!-- Hero Section -->
+    <section
+      class="relative h-screen flex items-center justify-center overflow-hidden bg-gray-900"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1920&h=1080&fit=crop"
+        alt="Fotografía profesional"
+        class="absolute inset-0 w-full h-full object-cover opacity-50"
+      />
+
+      <div class="relative z-10 text-center text-white px-4">
+        <h1 class="text-5xl md:text-7xl font-serif font-bold mb-6">
+          Capturamos Tu Historia
+        </h1>
+        <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto font-light">
+          Fotografía profesional con enfoque artístico y minimalista
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/proyectos"
+            class="bg-white text-gray-900 px-8 py-4 text-lg font-medium hover:bg-gray-100 transition-colors"
+          >
+            Ver Proyectos
+          </a>
+          <a
+            href="/contacto"
+            class="border-2 border-white text-white px-8 py-4 text-lg font-medium hover:bg-white hover:text-gray-900 transition-colors"
+          >
+            Contactar
+          </a>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div
+        class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
+      >
+        <svg
+          class="w-6 h-6 text-white"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Sobre Nosotros Breve -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
+        <h2
+          class="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6"
+        >
+          Fotografía con Alma
+        </h2>
+        <p class="text-lg text-gray-600 leading-relaxed mb-8">
+          En BittFilms creemos que cada imagen cuenta una historia única.
+          Nuestro enfoque minimalista y elegante captura la esencia de cada
+          momento, transformando instantes fugaces en recuerdos eternos. Con más
+          de 10 años de experiencia, nos especializamos en crear imágenes
+          atemporales que trascienden las tendencias.
+        </p>
+        <a
+          href="/sobre-nosotros"
+          class="inline-block text-gray-900 border-b-2 border-gray-900 pb-1 hover:text-gray-600 hover:border-gray-600 transition-colors font-medium"
+        >
+          Conocer Más Sobre Nosotros →
+        </a>
+      </div>
+    </section>
+
+    <!-- Servicios Destacados -->
+    <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2
+            class="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4"
+          >
+            Nuestros Servicios
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Ofrecemos soluciones fotográficas adaptadas a tus necesidades
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto"
+        >
+          <div class="text-center">
+            <div class="text-5xl mb-4">💍</div>
+            <h3 class="text-xl font-serif font-semibold mb-2">Bodas</h3>
+            <p class="text-sm text-gray-600">Momentos únicos e inolvidables</p>
+          </div>
+          <div class="text-center">
+            <div class="text-5xl mb-4">🎉</div>
+            <h3 class="text-xl font-serif font-semibold mb-2">Eventos</h3>
+            <p class="text-sm text-gray-600">Celebraciones llenas de vida</p>
+          </div>
+          <div class="text-center">
+            <div class="text-5xl mb-4">📦</div>
+            <h3 class="text-xl font-serif font-semibold mb-2">Producto</h3>
+            <p class="text-sm text-gray-600">Imágenes que venden</p>
+          </div>
+          <div class="text-center">
+            <div class="text-5xl mb-4">💼</div>
+            <h3 class="text-xl font-serif font-semibold mb-2">Corporativa</h3>
+            <p class="text-sm text-gray-600">Profesionalismo visual</p>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a
+            href="/servicios"
+            class="inline-block bg-gray-900 text-white px-8 py-3 hover:bg-gray-800 transition-colors font-medium"
+          >
+            Ver Todos los Servicios
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proyectos Destacados -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2
+            class="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4"
+          >
+            Proyectos Destacados
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Una selección de nuestros trabajos más recientes
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+        >
+          {featuredProjects.map((project) => <ProjectCard {...project} />)}
+        </div>
+
+        <div class="text-center mt-12">
+          <a
+            href="/proyectos"
+            class="inline-block text-gray-900 border-b-2 border-gray-900 pb-1 hover:text-gray-600 hover:border-gray-600 transition-colors font-medium"
+          >
+            Ver Todos los Proyectos →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Final -->
+    <section class="py-20 bg-gray-900 text-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6">
+          ¿Listo para Crear Algo Único?
+        </h2>
+        <p class="text-xl mb-8 max-w-2xl mx-auto">
+          Hablemos de tu proyecto y convirtamos tu visión en imágenes
+          inolvidables
+        </p>
+        <a
+          href="/contacto"
+          class="inline-block bg-white text-gray-900 px-8 py-4 text-lg font-medium hover:bg-gray-100 transition-colors"
+        >
+          Contactar Ahora
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,337 @@
+---
+// src/pages/servicios.astro
+// Página que detalla todos los servicios fotográficos ofrecidos
+
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+---
+
+<Layout
+  title="Servicios"
+  description="Servicios de fotografía profesional: bodas, eventos, producto, corporativa y proyectos personales. Soluciones fotográficas adaptadas a tus necesidades."
+>
+  <Header />
+
+  <main>
+    <!-- Hero Section -->
+    <section
+      class="relative h-96 flex items-center justify-center overflow-hidden bg-gray-900"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?w=1920&h=600&fit=crop"
+        alt="Servicios de fotografía profesional"
+        class="absolute inset-0 w-full h-full object-cover opacity-40"
+      />
+      <div class="relative z-10 text-center text-white px-4">
+        <h1 class="text-5xl md:text-6xl font-serif font-bold mb-4">
+          Nuestros Servicios
+        </h1>
+        <p class="text-xl max-w-2xl mx-auto">
+          Soluciones fotográficas profesionales para cada necesidad
+        </p>
+      </div>
+    </section>
+
+    <!-- Servicios Principales -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <ServiceCard
+            icon="💍"
+            title="Fotografía de Bodas"
+            description="Capturamos cada emoción de tu día especial con un estilo elegante y atemporal. Desde la preparación hasta el último baile, documentamos tu historia de amor con sensibilidad y arte."
+            features={[
+              "Cobertura completa del evento (preparativos, ceremonia, celebración)",
+              "Sesión de pareja antes o después de la boda",
+              "Álbum digital de alta resolución",
+              "Galería online privada para compartir",
+              "Opción de álbum impreso premium",
+            ]}
+          />
+
+          <ServiceCard
+            icon="🎉"
+            title="Fotografía de Eventos"
+            description="Eventos corporativos, celebraciones familiares, cumpleaños especiales o presentaciones. Cubrimos todo tipo de eventos con profesionalismo y discreción."
+            features={[
+              "Cobertura flexible según necesidades",
+              "Fotografía candid y posada",
+              "Entrega rápida de imágenes editadas",
+              "Cobertura de eventos virtuales e híbridos",
+              "Reportaje fotográfico completo",
+            ]}
+          />
+
+          <ServiceCard
+            icon="📦"
+            title="Fotografía de Producto"
+            description="Imágenes comerciales que destacan la esencia de tu producto. Perfectas para e-commerce, catálogos, campañas publicitarias y redes sociales."
+            features={[
+              "Sesión en estudio o localización",
+              "Múltiples ángulos y composiciones",
+              "Retoque profesional detallado",
+              "Imágenes optimizadas para web y print",
+              "Props y styling incluidos",
+            ]}
+          />
+
+          <ServiceCard
+            icon="💼"
+            title="Fotografía Corporativa"
+            description="Retratos profesionales y fotografía de marca que transmiten confianza y profesionalismo. Ideal para equipos, ejecutivos y perfiles de LinkedIn."
+            features={[
+              "Retratos corporativos individuales",
+              "Fotografía de equipo y oficinas",
+              "Headshots profesionales",
+              "Cobertura de eventos corporativos",
+              "Contenido para redes sociales empresariales",
+            ]}
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Servicios Adicionales -->
+    <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <h2
+          class="text-4xl font-serif font-bold text-gray-900 mb-12 text-center"
+        >
+          Servicios Adicionales
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white p-6 border border-gray-200">
+            <h3 class="text-xl font-serif font-semibold mb-3">
+              Sesiones de Retrato
+            </h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Retratos personales, familiares o de maternidad en estudio o
+              exteriores. Capturamos la personalidad única de cada persona.
+            </p>
+          </div>
+
+          <div class="bg-white p-6 border border-gray-200">
+            <h3 class="text-xl font-serif font-semibold mb-3">
+              Fotografía Arquitectura
+            </h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Espacios interiores y exteriores para inmobiliarias, arquitectos y
+              diseñadores. Destacamos las características únicas de cada
+              espacio.
+            </p>
+          </div>
+
+          <div class="bg-white p-6 border border-gray-200">
+            <h3 class="text-xl font-serif font-semibold mb-3">
+              Fotografía Gastronómica
+            </h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Imágenes apetitosas de platos, bebidas y ambientes para
+              restaurantes, chefs y marcas de alimentos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proceso de Trabajo -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+        <h2
+          class="text-4xl font-serif font-bold text-gray-900 mb-12 text-center"
+        >
+          Cómo Trabajamos
+        </h2>
+
+        <div class="space-y-8">
+          <div class="flex items-start space-x-4">
+            <div
+              class="flex-shrink-0 w-12 h-12 bg-gray-900 text-white rounded-full flex items-center justify-center font-bold"
+            >
+              1
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold mb-2">Consulta Inicial</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Nos reunimos (presencial o virtualmente) para conocer tu
+                proyecto, necesidades, estilo preferido y expectativas. Esta
+                conversación nos ayuda a planificar la sesión perfecta.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="flex-shrink-0 w-12 h-12 bg-gray-900 text-white rounded-full flex items-center justify-center font-bold"
+            >
+              2
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold mb-2">Planificación</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Desarrollamos un plan detallado: locaciones, horarios, lista de
+                tomas, props necesarios y cualquier detalle logístico. Te
+                mantenemos informado en cada paso.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="flex-shrink-0 w-12 h-12 bg-gray-900 text-white rounded-full flex items-center justify-center font-bold"
+            >
+              3
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold mb-2">Sesión Fotográfica</h3>
+              <p class="text-gray-600 leading-relaxed">
+                El día de la sesión trabajamos con profesionalismo, creatividad
+                y flexibilidad. Nos adaptamos a las circunstancias para obtener
+                las mejores imágenes posibles.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="flex-shrink-0 w-12 h-12 bg-gray-900 text-white rounded-full flex items-center justify-center font-bold"
+            >
+              4
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold mb-2">Selección y Edición</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Realizamos una cuidadosa selección de las mejores tomas y
+                aplicamos nuestro proceso de edición profesional para entregar
+                imágenes perfectas.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="flex-shrink-0 w-12 h-12 bg-gray-900 text-white rounded-full flex items-center justify-center font-bold"
+            >
+              5
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold mb-2">Entrega</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Recibes tus imágenes en alta resolución a través de una galería
+                online privada. Tiempo de entrega típico: 2-3 semanas (bodas:
+                4-6 semanas).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Paquetes y Precios -->
+    <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
+        <h2 class="text-4xl font-serif font-bold text-gray-900 mb-6">
+          Paquetes Personalizados
+        </h2>
+        <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+          Cada proyecto es único. Creamos paquetes personalizados que se adaptan
+          a tus necesidades específicas y presupuesto. Contáctanos para recibir
+          una cotización detallada sin compromiso.
+        </p>
+        <a
+          href="/contacto"
+          class="inline-block bg-gray-900 text-white px-8 py-4 text-lg font-medium hover:bg-gray-800 transition-colors"
+        >
+          Solicitar Cotización
+        </a>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+        <h2
+          class="text-4xl font-serif font-bold text-gray-900 mb-12 text-center"
+        >
+          Preguntas Frecuentes
+        </h2>
+
+        <div class="space-y-6">
+          <details class="group border-b border-gray-200 pb-6">
+            <summary
+              class="text-xl font-semibold cursor-pointer list-none flex justify-between items-center"
+            >
+              ¿Cuánto tiempo tardan en entregar las fotos?
+              <span
+                class="text-gray-400 group-open:rotate-180 transition-transform"
+                >▼</span
+              >
+            </summary>
+            <p class="text-gray-600 mt-4 leading-relaxed">
+              El tiempo de entrega varía según el tipo de servicio. Para
+              sesiones de producto o retratos, normalmente entregamos en 2-3
+              semanas. Para bodas, el proceso es más extenso y toma entre 4-6
+              semanas.
+            </p>
+          </details>
+
+          <details class="group border-b border-gray-200 pb-6">
+            <summary
+              class="text-xl font-semibold cursor-pointer list-none flex justify-between items-center"
+            >
+              ¿Puedo solicitar cambios en las fotos?
+              <span
+                class="text-gray-400 group-open:rotate-180 transition-transform"
+                >▼</span
+              >
+            </summary>
+            <p class="text-gray-600 mt-4 leading-relaxed">
+              Sí, incluimos una ronda de revisiones en todos nuestros paquetes.
+              Si hay ajustes específicos que deseas, estaremos encantados de
+              realizarlos.
+            </p>
+          </details>
+
+          <details class="group border-b border-gray-200 pb-6">
+            <summary
+              class="text-xl font-semibold cursor-pointer list-none flex justify-between items-center"
+            >
+              ¿Viajan a otras ciudades?
+              <span
+                class="text-gray-400 group-open:rotate-180 transition-transform"
+                >▼</span
+              >
+            </summary>
+            <p class="text-gray-600 mt-4 leading-relaxed">
+              Absolutamente. Cubrimos proyectos en toda España y también
+              internacional. Los gastos de viaje se incluyen en la cotización
+              según la localización.
+            </p>
+          </details>
+
+          <details class="group border-b border-gray-200 pb-6">
+            <summary
+              class="text-xl font-semibold cursor-pointer list-none flex justify-between items-center"
+            >
+              ¿Qué pasa si el clima no coopera?
+              <span
+                class="text-gray-400 group-open:rotate-180 transition-transform"
+                >▼</span
+              >
+            </summary>
+            <p class="text-gray-600 mt-4 leading-relaxed">
+              Para sesiones al aire libre, siempre tenemos un plan B. Podemos
+              reprogramar sin costo adicional o buscar locaciones alternativas
+              cubiertas si es necesario.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

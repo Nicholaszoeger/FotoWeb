@@ -1,0 +1,217 @@
+---
+// src/pages/sobre-nosotros.astro
+// Página que presenta la historia, filosofía y equipo de BittFilms
+
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Sobre Nosotros"
+  description="Conoce la historia, filosofía y equipo detrás de BittFilms. Más de 10 años capturando momentos únicos con un enfoque artístico y minimalista."
+>
+  <Header />
+
+  <main>
+    <!-- Hero Section -->
+    <section
+      class="relative h-96 flex items-center justify-center overflow-hidden bg-gray-900"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=1920&h=600&fit=crop"
+        alt="Equipo BittFilms"
+        class="absolute inset-0 w-full h-full object-cover opacity-40"
+      />
+      <div class="relative z-10 text-center text-white px-4">
+        <h1 class="text-5xl md:text-6xl font-serif font-bold">
+          Sobre Nosotros
+        </h1>
+      </div>
+    </section>
+
+    <!-- Nuestra Historia -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+        <h2 class="text-4xl font-serif font-bold text-gray-900 mb-8">
+          Nuestra Historia
+        </h2>
+
+        <div class="prose prose-lg max-w-none">
+          <p class="text-gray-700 leading-relaxed mb-6">
+            BittFilms nació en 2014 de una pasión inquebrantable por capturar la
+            belleza en su forma más pura. Lo que comenzó como un pequeño
+            proyecto personal se ha transformado en un estudio de fotografía
+            profesional reconocido por su enfoque artístico y minimalista.
+          </p>
+
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Desde nuestros inicios, hemos tenido claro que la fotografía es
+            mucho más que pulsar un botón. Es sobre conectar con las personas,
+            comprender sus historias y traducir emociones en imágenes que
+            perduren en el tiempo. Cada proyecto es una nueva oportunidad para
+            crear algo único y significativo.
+          </p>
+
+          <p class="text-gray-700 leading-relaxed">
+            A lo largo de estos años, hemos tenido el privilegio de documentar
+            cientos de bodas, eventos corporativos, lanzamientos de producto y
+            proyectos personales. Cada uno de ellos ha dejado una huella en
+            nuestro trabajo y nos ha permitido evolucionar constantemente.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filosofía -->
+    <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-serif font-bold text-gray-900 mb-4">
+            Nuestra Filosofía
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Los principios que guían cada uno de nuestros proyectos
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white p-8 text-center">
+            <div class="text-5xl mb-4">✨</div>
+            <h3 class="text-2xl font-serif font-semibold mb-4">Autenticidad</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Capturamos momentos genuinos sin artificios. Creemos que la
+              belleza real está en la naturalidad y la espontaneidad.
+            </p>
+          </div>
+
+          <div class="bg-white p-8 text-center">
+            <div class="text-5xl mb-4">🎨</div>
+            <h3 class="text-2xl font-serif font-semibold mb-4">Minimalismo</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Menos es más. Nuestro estilo minimalista elimina distracciones y
+              destaca lo esencial de cada imagen.
+            </p>
+          </div>
+
+          <div class="bg-white p-8 text-center">
+            <div class="text-5xl mb-4">❤️</div>
+            <h3 class="text-2xl font-semibold font-serif mb-4">Conexión</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Establecemos una relación cercana con nuestros clientes para
+              entender su visión y superar sus expectativas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enfoque Artístico -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-4xl font-serif font-bold text-gray-900 mb-6">
+              Enfoque Artístico
+            </h2>
+            <p class="text-gray-700 leading-relaxed mb-6">
+              Nuestro estilo se caracteriza por el uso inteligente de la luz
+              natural, composiciones limpias y un enfoque atemporal que evita
+              las tendencias pasajeras. Cada fotografía es tratada como una
+              pieza de arte.
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-6">
+              Trabajamos principalmente con luz disponible, lo que nos permite
+              crear imágenes más naturales y emotivas. Nuestro proceso de
+              edición es sutil y refinado, manteniendo la integridad de los
+              colores y texturas originales.
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+              Creemos firmemente en la fotografía como forma de arte narrativo.
+              No solo capturamos imágenes bonitas, contamos historias visuales
+              completas que transportan al espectador al momento exacto en que
+              se tomó la fotografía.
+            </p>
+          </div>
+
+          <div>
+            <img
+              src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=800&h=1000&fit=crop"
+              alt="Enfoque artístico en fotografía"
+              class="w-full h-auto shadow-2xl"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Equipo -->
+    <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-serif font-bold text-gray-900 mb-4">
+            Nuestro Equipo
+          </h2>
+          <p class="text-lg text-gray-600">
+            Los profesionales detrás de cada imagen
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-white p-6 text-center">
+            <img
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
+              alt="Fotógrafo principal"
+              class="w-40 h-40 rounded-full mx-auto mb-4 object-cover"
+            />
+            <h3 class="text-2xl font-serif font-semibold mb-2">
+              Carlos Mendoza
+            </h3>
+            <p class="text-gray-600 mb-4">Fotógrafo Principal & Fundador</p>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              Con más de 15 años de experiencia, Carlos lidera cada proyecto con
+              pasión y dedicación. Su formación en Bellas Artes y Fotografía
+              Profesional se refleja en cada imagen.
+            </p>
+          </div>
+
+          <div class="bg-white p-6 text-center">
+            <img
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop"
+              alt="Fotógrafa asociada"
+              class="w-40 h-40 rounded-full mx-auto mb-4 object-cover"
+            />
+            <h3 class="text-2xl font-serif font-semibold mb-2">
+              Laura Sánchez
+            </h3>
+            <p class="text-gray-600 mb-4">Fotógrafa Asociada</p>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              Laura aporta una sensibilidad especial a los proyectos de bodas y
+              retratos. Su capacidad para conectar con las personas crea
+              imágenes llenas de emoción auténtica.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-gray-900 text-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-4xl font-serif font-bold mb-6">¿Trabajamos Juntos?</h2>
+        <p class="text-xl mb-8 max-w-2xl mx-auto">
+          Nos encantaría conocer tu proyecto y ver cómo podemos ayudarte a crear
+          imágenes extraordinarias
+        </p>
+        <a
+          href="/contacto"
+          class="inline-block bg-white text-gray-900 px-8 py-4 text-lg font-medium hover:bg-gray-100 transition-colors"
+        >
+          Contactar
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

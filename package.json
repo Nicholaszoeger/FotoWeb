@@ -1,5 +1,5 @@
 {
-  "name": "fotoweb",
+  "name": "bittfilms",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -9,10 +9,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.12",
-    "@astrojs/rss": "^4.0.14",
-    "@astrojs/sitemap": "^3.6.0",
-    "astro": "^5.16.4",
-    "sharp": "^0.34.3"
+    "@tailwindcss/vite": "^4.1.18",
+    "astro": "^5.16.15"
+  },
+  "devDependencies": {
+    "@astrojs/tailwind": "^5.1.5",
+    "@types/node": "^20.17.10",
+    "tailwindcss": "^3.4.19"
   }
 }
