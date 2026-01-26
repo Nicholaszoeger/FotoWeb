@@ -1,30 +1,33 @@
 ---
 // src/components/ProjectCard.astro
-// Componente reutilizable para mostrar un proyecto en formato tarjeta
-// Se usa en la página de listado de proyectos
-
-import { Image } from "astro:assets";
+import { CldImage } from "astro-cloudinary";
 
 interface Props {
   title: string;
   category: string;
-  image: string;
+  coverImage: string; // publicId de Cloudinary
   slug: string;
   description?: string;
 }
 
-const { title, category, image, slug, description } = Astro.props;
+const { title, category, coverImage, slug, description } = Astro.props;
 ---
 
 <article class="group cursor-pointer">
   <a href={`/proyectos/${slug}`} class="block">
-    <!-- Imagen del proyecto -->
+    <!-- Imagen optimizada con Cloudinary -->
     <div class="relative overflow-hidden bg-gray-100 aspect-[4/3] mb-4">
-      <img
-        src={image}
+      <CldImage
+        src={coverImage}
+        width={800}
+        height={600}
+        crop="fill"
+        gravity="auto"
         alt={title}
         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         loading="lazy"
+        format="auto"
+        quality="auto"
       />
       <div
         class="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300"
@@ -50,12 +53,3 @@ const { title, category, image, slug, description } = Astro.props;
     </div>
   </a>
 </article>
-
-<style>
-  .line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-</style>
