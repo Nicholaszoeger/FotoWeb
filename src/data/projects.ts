@@ -1,7 +1,7 @@
 // src/data/projects.ts
 
 export interface ProjectImage {
-  publicId: string; // ID en Cloudinary
+  src: string; // ID en Cloudinary
   alt: string;
   caption: string;
 }
@@ -37,32 +37,32 @@ export const projects: Project[] = [
       "Planificamos meticulosamente los tiempos para aprovechar la golden hour.",
     images: [
       {
-        publicId: "bittfilms/proyectos/boda-costa-mediterranea/ceremonia-1",
+        src: "bittfilms/proyectos/boda-costa-mediterranea/ceremonia-1",
         alt: "Ceremonia junto al mar",
         caption: "La ceremonia al atardecer",
       },
       {
-        publicId: "bittfilms/proyectos/boda-costa-mediterranea/detalles-1",
+        src: "bittfilms/proyectos/boda-costa-mediterranea/detalles-1",
         alt: "Detalles decoración",
         caption: "Detalles de la decoración",
       },
       {
-        publicId: "bittfilms/proyectos/boda-costa-mediterranea/pareja-1",
+        src: "bittfilms/proyectos/boda-costa-mediterranea/pareja-1",
         alt: "Retrato de pareja",
         caption: "Retrato de los novios",
       },
       {
-        publicId: "bittfilms/proyectos/boda-costa-mediterranea/sunset-1",
+        src: "bittfilms/proyectos/boda-costa-mediterranea/sunset-1",
         alt: "Puesta de sol",
         caption: "Puesta de sol mediterránea",
       },
       {
-        publicId: "bittfilms/proyectos/boda-costa-mediterranea/celebracion-1",
+        src: "bittfilms/proyectos/boda-costa-mediterranea/celebracion-1",
         alt: "Celebración",
         caption: "Momento de celebración",
       },
       {
-        publicId: "bittfilms/proyectos/boda-costa-mediterranea/flores-1",
+        src: "bittfilms/proyectos/boda-costa-mediterranea/flores-1",
         alt: "Detalles florales",
         caption: "Arreglos florales",
       },
@@ -82,17 +82,17 @@ export const projects: Project[] = [
     solution: "Utilizamos iluminación de estudio controlada con softboxes.",
     images: [
       {
-        publicId: "bittfilms/proyectos/producto-artesanal/collar-oro-1",
+        src: "bittfilms/proyectos/producto-artesanal/collar-oro-1",
         alt: "Collar de oro",
         caption: "Collar artesanal de oro",
       },
       {
-        publicId: "bittfilms/proyectos/producto-artesanal/anillo-diamante-1",
+        src: "bittfilms/proyectos/producto-artesanal/anillo-diamante-1",
         alt: "Anillo con diamante",
         caption: "Anillo con diamante central",
       },
       {
-        publicId: "bittfilms/proyectos/producto-artesanal/pulsera-plata-1",
+        src: "bittfilms/proyectos/producto-artesanal/pulsera-plata-1",
         alt: "Pulsera plata",
         caption: "Pulsera de plata oxidada",
       },
@@ -113,22 +113,22 @@ export const projects: Project[] = [
     solution: "Combinamos retratos formales con fotografías candid del equipo.",
     images: [
       {
-        publicId: "bittfilms/proyectos/sesion-corporativa-tech/equipo-1",
+        src: "bittfilms/proyectos/sesion-corporativa-tech/equipo-1",
         alt: "Equipo trabajando",
         caption: "El equipo en acción",
       },
       {
-        publicId: "bittfilms/proyectos/sesion-corporativa-tech/ceo-portrait",
+        src: "bittfilms/proyectos/sesion-corporativa-tech/ceo-portrait",
         alt: "CEO portrait",
         caption: "Retrato del CEO",
       },
       {
-        publicId: "bittfilms/proyectos/sesion-corporativa-tech/meeting-1",
+        src: "bittfilms/proyectos/sesion-corporativa-tech/meeting-1",
         alt: "Reunión equipo",
         caption: "Sesión de brainstorming",
       },
       {
-        publicId: "bittfilms/proyectos/sesion-corporativa-tech/office-1",
+        src: "bittfilms/proyectos/sesion-corporativa-tech/office-1",
         alt: "Oficinas modernas",
         caption: "Espacios de trabajo",
       },

@@ -4,7 +4,7 @@ import { CldImage } from "astro-cloudinary";
 
 interface Props {
   images: {
-    publicId: string;
+    src: string;
     alt: string;
     caption?: string;
   }[];
@@ -26,7 +26,7 @@ const gridClasses = {
       <div class="group cursor-pointer" data-gallery-item={index}>
         <div class="relative overflow-hidden bg-gray-100 aspect-square">
           <CldImage
-            src={image.publicId}
+            src={image.src}
             width={800}
             height={800}
             crop="fill"
