@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bittfilms.com/sitemap-index.xml
+Sitemap: https://bittfilms.es/sitemap-index.xml

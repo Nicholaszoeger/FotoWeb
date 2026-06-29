@@ -103,11 +103,16 @@ const navLinks = [
     menu?.classList.toggle("hidden");
   });
 
-  // Cerrar menú al hacer clic en un enlace
   const mobileLinks = menu?.querySelectorAll("a");
   mobileLinks?.forEach((link) => {
     link.addEventListener("click", () => {
       menu?.classList.add("hidden");
     });
   });
+
+  window.addEventListener("scroll", () => {
+    if (!menu?.classList.contains("hidden")) {
+      menu?.classList.add("hidden");
+    }
+  }, { passive: true });
 </script>

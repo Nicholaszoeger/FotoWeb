@@ -7,7 +7,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://bittfilms.com", // Cambia esto por tu dominio real
+  site: "https://bittfilms.es", // Cambia esto por tu dominio real
   integrations: [
     tailwind({
       applyBaseStyles: true,
