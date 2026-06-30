@@ -1,0 +1,50 @@
+---
+// src/pages/cookies.astro
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Política de Cookies"
+  description="Información sobre el uso de cookies en el sitio web de BittFilms."
+>
+  <Header />
+
+  <main>
+    <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 max-w-3xl">
+      <h1 class="text-4xl font-serif font-bold mb-8">Política de Cookies</h1>
+
+      <div class="prose prose-gray max-w-none space-y-6 text-gray-700 leading-relaxed">
+        <p>Última actualización: 30 de junio de 2026</p>
+
+        <h2 class="text-2xl font-serif font-semibold mt-8 mb-3">1. ¿Qué son las cookies?</h2>
+        <p>
+          Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando
+          visitas un sitio web. Permiten que la web recuerde tus acciones y preferencias.
+        </p>
+
+        <h2 class="text-2xl font-serif font-semibold mt-8 mb-3">2. Cookies que utilizamos</h2>
+        <p>
+          Este sitio puede utilizar cookies técnicas necesarias para su funcionamiento y, en su
+          caso, cookies analíticas para entender cómo los usuarios interactúan con la web (por
+          ejemplo, Google Analytics).
+        </p>
+
+        <h2 class="text-2xl font-serif font-semibold mt-8 mb-3">3. Cómo desactivar las cookies</h2>
+        <p>
+          Puedes permitir, bloquear o eliminar las cookies instaladas en tu equipo mediante la
+          configuración de las opciones del navegador instalado en tu dispositivo.
+        </p>
+
+        <h2 class="text-2xl font-serif font-semibold mt-8 mb-3">4. Más información</h2>
+        <p>
+          Si tienes dudas sobre nuestra política de cookies, puedes escribirnos a
+          <a href="mailto:info@bittfilms.es" class="text-gray-900 underline">info@bittfilms.es</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
