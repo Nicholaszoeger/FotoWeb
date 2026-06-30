@@ -3,7 +3,7 @@
 // Componente de navegación principal con menú responsive
 // Incluye logo y enlaces a todas las páginas principales
 
-const currentPath = Astro.url.pathname;
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 
 const navLinks = [
   { href: "/", label: "Inicio" },
