@@ -1,0 +1,63 @@
+---
+// src/pages/privacidad.astro
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Política de Privacidad"
+  description="Política de privacidad de BittFilms. Información sobre cómo recopilamos, usamos y protegemos tus datos personales."
+>
+  <Header />
+
+  <main>
+    <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 max-w-3xl">
+      <h1 class="text-4xl font-serif font-bold mb-8">Política de Privacidad</h1>
+
+      <div class="prose prose-gray max-w-none space-y-6 text-gray-700 leading-relaxed">
+        <p>Última actualización: 30 de junio de 2026</p>
+
+        <h2 class="text-2xl font-serif font-semibold mt-8 mb-3">1. Responsable del tratamiento</h2>
+        <p>
+          BittFilms, con domicilio en Alcalá de Henares, Madrid, es el responsable del tratamiento
+          de los datos personales que nos facilites a través de este sitio web. Puedes contactarnos
+          en <a href="mailto:info@bittfilms.es" class="text-gray-900 underline">info@bittfilms.es</a>.
+        </p>
+
+        <h2 class="text-2xl font-serif font-semibold mt-8 mb-3">2. Datos que recopilamos</h2>
+        <p>
+          A través del formulario de contacto recopilamos: nombre, correo electrónico, teléfono
+          (opcional), tipo de servicio solicitado y el mensaje que nos envíes.
+        </p>
+
+        <h2 class="text-2xl font-serif font-semibold mt-8 mb-3">3. Finalidad del tratamiento</h2>
+        <p>
+          Utilizamos tus datos exclusivamente para responder a tu solicitud de información o
+          presupuesto y gestionar la relación comercial que pudiera derivarse.
+        </p>
+
+        <h2 class="text-2xl font-serif font-semibold mt-8 mb-3">4. Conservación de los datos</h2>
+        <p>
+          Conservaremos tus datos mientras exista una relación comercial o hasta que solicites su
+          supresión.
+        </p>
+
+        <h2 class="text-2xl font-serif font-semibold mt-8 mb-3">5. Tus derechos</h2>
+        <p>
+          Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y
+          portabilidad escribiendo a
+          <a href="mailto:info@bittfilms.es" class="text-gray-900 underline">info@bittfilms.es</a>.
+        </p>
+
+        <h2 class="text-2xl font-serif font-semibold mt-8 mb-3">6. Cesión de datos a terceros</h2>
+        <p>
+          No cedemos tus datos a terceros salvo obligación legal o cuando sea necesario para
+          prestar el servicio solicitado (por ejemplo, proveedores de envío de formularios).
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

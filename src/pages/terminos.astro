@@ -1,0 +1,63 @@
+---
+// src/pages/terminos.astro
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Términos y Condiciones"
+  description="Términos y condiciones de uso del sitio web de BittFilms y de nuestros servicios de fotografía profesional."
+>
+  <Header />
+
+  <main>
+    <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 max-w-3xl">
+      <h1 class="text-4xl font-serif font-bold mb-8">Términos y Condiciones</h1>
+
+      <div class="prose prose-gray max-w-none space-y-6 text-gray-700 leading-relaxed">
+        <p>Última actualización: 30 de junio de 2026</p>
+
+        <h2 class="text-2xl font-serif font-semibold mt-8 mb-3">1. Objeto</h2>
+        <p>
+          Estos términos regulan el uso del sitio web bittfilms.es, propiedad de BittFilms, así
+          como la contratación de nuestros servicios de fotografía profesional.
+        </p>
+
+        <h2 class="text-2xl font-serif font-semibold mt-8 mb-3">2. Uso del sitio web</h2>
+        <p>
+          El acceso a este sitio web es gratuito. El usuario se compromete a hacer un uso
+          adecuado de los contenidos y servicios ofrecidos, sin emplearlos para actividades
+          ilícitas o que infrinjan derechos de terceros.
+        </p>
+
+        <h2 class="text-2xl font-serif font-semibold mt-8 mb-3">3. Propiedad intelectual</h2>
+        <p>
+          Todas las fotografías, textos, logotipos y demás contenidos de este sitio son propiedad
+          de BittFilms y están protegidos por derechos de propiedad intelectual. Queda prohibida su
+          reproducción sin autorización previa.
+        </p>
+
+        <h2 class="text-2xl font-serif font-semibold mt-8 mb-3">4. Contratación de servicios</h2>
+        <p>
+          Las condiciones específicas de cada servicio (precio, alcance, plazos de entrega) se
+          acordarán de forma individual con cada cliente antes de iniciar el proyecto.
+        </p>
+
+        <h2 class="text-2xl font-serif font-semibold mt-8 mb-3">5. Responsabilidad</h2>
+        <p>
+          BittFilms no se hace responsable de los daños derivados de un uso indebido del sitio web
+          por parte del usuario.
+        </p>
+
+        <h2 class="text-2xl font-serif font-semibold mt-8 mb-3">6. Legislación aplicable</h2>
+        <p>
+          Estos términos se rigen por la legislación española. Cualquier controversia se someterá
+          a los juzgados y tribunales que correspondan según la normativa vigente.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
