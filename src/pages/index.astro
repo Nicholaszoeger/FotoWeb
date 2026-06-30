@@ -7,6 +7,9 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 
+const cloudName = import.meta.env.PUBLIC_CLOUDINARY_CLOUD_NAME;
+const heroImageUrl = `https://res.cloudinary.com/${cloudName}/image/upload/f_auto,q_auto/_DSC5800_2_onuc1a_rmruxb.jpg`;
+
 // Proyectos destacados (en producción vendrían de una colección o CMS)
 const featuredProjects = [
   {
@@ -48,7 +51,7 @@ const featuredProjects = [
       class="relative h-screen flex items-center justify-center overflow-hidden bg-gray-900"
     >
       <img
-        src="https://res.cloudinary.com/dlegep0r0/image/upload/v1769382669/_DSC5800_2_cjfgxu.jpg"
+        src={heroImageUrl}
         alt="Fotografía profesional"
         class="absolute inset-0 w-full h-full object-cover opacity-50"
         loading="eager"
