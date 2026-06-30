@@ -3,6 +3,8 @@
 // Este es el layout principal que envuelve todas las páginas
 // Proporciona la estructura HTML básica, SEO y estilos globales
 
+import { ClientRouter } from "astro:transitions";
+
 interface Props {
   title: string;
   description: string;
@@ -43,6 +45,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <!-- Meta robots -->
     <meta name="robots" content="index, follow" />
+
+    <!-- View Transitions para navegación instantánea -->
+    <ClientRouter />
 
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json" set:html={JSON.stringify({
