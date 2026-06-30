@@ -99,30 +99,36 @@ const navLinks = [
 
 <script>
   // Script para toggle del menú móvil
-  const button = document.getElementById("mobile-menu-button");
-  const menu = document.getElementById("mobile-menu");
+  // Se reinicializa en cada navegación porque View Transitions no recarga la página
+  function initMobileMenu() {
+    const button = document.getElementById("mobile-menu-button");
+    const menu = document.getElementById("mobile-menu");
 
-  let menuJustOpened = false;
+    let menuJustOpened = false;
 
-  button?.addEventListener("click", () => {
-    menu?.classList.toggle("hidden");
-    if (!menu?.classList.contains("hidden")) {
-      menuJustOpened = true;
-      setTimeout(() => (menuJustOpened = false), 300);
-    }
-  });
-
-  const mobileLinks = menu?.querySelectorAll("a");
-  mobileLinks?.forEach((link) => {
-    link.addEventListener("click", () => {
-      menu?.classList.add("hidden");
+    button?.addEventListener("click", () => {
+      menu?.classList.toggle("hidden");
+      if (!menu?.classList.contains("hidden")) {
+        menuJustOpened = true;
+        setTimeout(() => (menuJustOpened = false), 300);
+      }
     });
-  });
 
-  window.addEventListener("scroll", () => {
-    if (menuJustOpened) return;
-    if (!menu?.classList.contains("hidden")) {
-      menu?.classList.add("hidden");
-    }
-  }, { passive: true });
+    const mobileLinks = menu?.querySelectorAll("a");
+    mobileLinks?.forEach((link) => {
+      link.addEventListener("click", () => {
+        menu?.classList.add("hidden");
+      });
+    });
+
+    window.addEventListener("scroll", () => {
+      if (menuJustOpened) return;
+      if (!menu?.classList.contains("hidden")) {
+        menu?.classList.add("hidden");
+      }
+    }, { passive: true });
+  }
+
+  initMobileMenu();
+  document.addEventListener("astro:page-load", initMobileMenu);
 </script>
