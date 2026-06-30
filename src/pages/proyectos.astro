@@ -146,9 +146,68 @@ const categories = ["Todos", "Bodas", "Producto", "Corporativa", "Eventos"];
     </section>
 
     <!-- Filtros por Categoría -->
-    <section class="bg-white border-b border-gray-200 sticky top-20 z-40">
+    <section class="bg-white sticky top-20 z-40">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div class="flex flex-wrap justify-center gap-4">
+        <!-- Desplegable personalizado en móvil -->
+        <div class="md:hidden relative">
+          <button
+            id="category-dropdown-btn"
+            type="button"
+            class="w-full flex items-center justify-between pl-11 pr-4 py-3 text-sm font-medium text-gray-900 bg-white cursor-pointer relative"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+          >
+            <svg
+              class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 4h18M6 8h12M9 12h6M11 16h2"></path>
+            </svg>
+            <span id="category-dropdown-label">Todos</span>
+            <svg
+              id="category-dropdown-chevron"
+              class="w-4 h-4 text-gray-500 transition-transform duration-200"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+
+          <ul
+            id="category-dropdown-list"
+            role="listbox"
+            class="hidden absolute left-0 right-0 top-full mt-1 bg-white shadow-lg z-50 overflow-hidden"
+          >
+            {
+              categories.map((category) => (
+                <li role="option">
+                  <button
+                    type="button"
+                    class="dropdown-option w-full text-left px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors"
+                    data-category={category}
+                  >
+                    {category}
+                  </button>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <!-- Botones en escritorio -->
+        <div class="hidden md:flex flex-wrap justify-center gap-4">
           {
             categories.map((category) => (
               <button
@@ -219,22 +278,59 @@ const categories = ["Todos", "Bodas", "Producto", "Corporativa", "Eventos"];
 </Layout>
 
 <script>
-  // Funcionalidad de filtrado de proyectos
-  const filterButtons = document.querySelectorAll(".filter-btn");
-  const projectItems = document.querySelectorAll(".project-item");
-  const noResults = document.getElementById("no-results");
+  function initProjectFilters() {
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const dropdownOptions = document.querySelectorAll(".dropdown-option");
+    const projectItems = document.querySelectorAll(".project-item");
+    const noResults = document.getElementById("no-results");
 
-  filterButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const category = button.getAttribute("data-category");
+    const dropdownBtn = document.getElementById("category-dropdown-btn");
+    const dropdownList = document.getElementById("category-dropdown-list");
+    const dropdownLabel = document.getElementById("category-dropdown-label");
+    const dropdownChevron = document.getElementById("category-dropdown-chevron");
 
-      // Actualizar estado activo de botones
+    function openDropdown() {
+      dropdownList?.classList.remove("hidden");
+      dropdownChevron?.classList.add("rotate-180");
+      dropdownBtn?.setAttribute("aria-expanded", "true");
+    }
+
+    function closeDropdown() {
+      dropdownList?.classList.add("hidden");
+      dropdownChevron?.classList.remove("rotate-180");
+      dropdownBtn?.setAttribute("aria-expanded", "false");
+    }
+
+    dropdownBtn?.addEventListener("click", () => {
+      if (dropdownList?.classList.contains("hidden")) {
+        openDropdown();
+      } else {
+        closeDropdown();
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      const target = e.target as Node;
+      if (!dropdownList?.contains(target) && !dropdownBtn?.contains(target)) {
+        closeDropdown();
+      }
+    });
+
+    function applyFilter(category: string) {
       filterButtons.forEach((btn) => {
         btn.classList.remove("bg-gray-900", "text-white", "border-gray-900");
       });
-      button.classList.add("bg-gray-900", "text-white", "border-gray-900");
+      const matchingButton = document.querySelector(`.filter-btn[data-category="${category}"]`);
+      matchingButton?.classList.add("bg-gray-900", "text-white", "border-gray-900");
 
-      // Filtrar proyectos
+      dropdownOptions.forEach((opt) => {
+        opt.classList.remove("bg-gray-100", "font-semibold");
+      });
+      const matchingOption = document.querySelector(`.dropdown-option[data-category="${category}"]`);
+      matchingOption?.classList.add("bg-gray-100", "font-semibold");
+
+      if (dropdownLabel) dropdownLabel.textContent = category;
+
       let visibleCount = 0;
       projectItems.forEach((item) => {
         const itemCategory = item.getAttribute("data-category");
@@ -247,7 +343,6 @@ const categories = ["Todos", "Bodas", "Producto", "Corporativa", "Eventos"];
         }
       });
 
-      // Mostrar mensaje si no hay resultados
       if (noResults) {
         if (visibleCount === 0) {
           noResults.classList.remove("hidden");
@@ -255,12 +350,30 @@ const categories = ["Todos", "Bodas", "Producto", "Corporativa", "Eventos"];
           noResults.classList.add("hidden");
         }
       }
-    });
-  });
+    }
 
-  // Activar "Todos" por defecto
-  const todosButton = document.querySelector('[data-category="Todos"]');
-  if (todosButton) {
-    todosButton.classList.add("bg-gray-900", "text-white", "border-gray-900");
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const category = button.getAttribute("data-category") ?? "Todos";
+        applyFilter(category);
+      });
+    });
+
+    dropdownOptions.forEach((option) => {
+      option.addEventListener("click", () => {
+        const category = option.getAttribute("data-category") ?? "Todos";
+        applyFilter(category);
+        closeDropdown();
+      });
+    });
+
+    const todosButton = document.querySelector('.filter-btn[data-category="Todos"]');
+    todosButton?.classList.add("bg-gray-900", "text-white", "border-gray-900");
+
+    const todosOption = document.querySelector('.dropdown-option[data-category="Todos"]');
+    todosOption?.classList.add("bg-gray-100", "font-semibold");
   }
+
+  initProjectFilters();
+  document.addEventListener("astro:page-load", initProjectFilters);
 </script>

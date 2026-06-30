@@ -7,11 +7,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Colores personalizados para la marca
+        // Colores de marca BittFilms, extraídos del logotipo oficial
         accent: {
-          DEFAULT: "#c9a961",
-          light: "#e5d4a6",
-          dark: "#a58840",
+          DEFAULT: "#f44300",
+          light: "#ff7340",
+          dark: "#c23600",
         },
       },
       fontFamily: {

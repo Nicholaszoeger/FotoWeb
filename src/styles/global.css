@@ -10,9 +10,9 @@
 
 @theme {
     /* Colores personalizados de la marca BittFilms */
-    --color-accent: #c9a961;
-    --color-accent-light: #e5d4a6;
-    --color-accent-dark: #a58840;
+    --color-accent: #f44300;
+    --color-accent-light: #ff7340;
+    --color-accent-dark: #c23600;
 
     /* Puedes agregar más colores personalizados aquí */
     --color-brand-beige: #f5f1e8;
