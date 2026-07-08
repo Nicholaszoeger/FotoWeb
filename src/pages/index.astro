@@ -6,37 +6,14 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import ProjectCard from "../components/ProjectCard.astro";
+import { getFeaturedProjects } from "../data/projects";
 
-const cloudName = import.meta.env.PUBLIC_CLOUDINARY_CLOUD_NAME;
-const heroImageUrl = `https://res.cloudinary.com/${cloudName}/image/upload/f_auto,q_auto/_DSC5800_2_onuc1a_rmruxb.jpg`;
+const cloudName = import.meta.env.PUBLIC_CLOUDINARY_CLOUD_NAME ?? "";
+const heroImageUrl = cloudName
+  ? `https://res.cloudinary.com/${cloudName}/image/upload/f_auto,q_auto/_DSC5800_2_onuc1a_rmruxb.jpg`
+  : "";
 
-// Proyectos destacados (en producción vendrían de una colección o CMS)
-const featuredProjects = [
-  {
-    title: "Boda en la Costa",
-    category: "Bodas",
-    coverImage:
-      "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop",
-    slug: "boda-costa-mediterranea",
-    description: "Una ceremonia íntima junto al mar con luz natural perfecta",
-  },
-  {
-    title: "Producto Artesanal",
-    category: "Producto",
-    coverImage:
-      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&h=600&fit=crop",
-    slug: "producto-artesanal",
-    description: "Fotografía de producto para marca de joyería artesanal",
-  },
-  {
-    title: "Sesión Corporativa",
-    category: "Corporativa",
-    coverImage:
-      "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=600&fit=crop",
-    slug: "sesion-corporativa-tech",
-    description: "Retratos profesionales para startup tecnológica",
-  },
-];
+const featuredProjects = getFeaturedProjects();
 ---
 
 <Layout

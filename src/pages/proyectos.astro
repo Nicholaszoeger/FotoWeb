@@ -6,115 +6,7 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import ProjectCard from "../components/ProjectCard.astro";
-
-// En producción, estos datos vendrían de una colección de Astro o CMS
-const projects = [
-  {
-    title: "Boda en la Costa Mediterránea",
-    category: "Bodas",
-    coverImage:
-      "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop",
-    slug: "boda-costa-mediterranea",
-    description:
-      "Una ceremonia íntima junto al mar con luz natural perfecta y puesta de sol inolvidable",
-  },
-  {
-    title: "Lanzamiento Producto Tecnológico",
-    category: "Producto",
-    coverImage:
-      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&h=600&fit=crop",
-    slug: "producto-tech-launch",
-    description:
-      "Fotografía de producto para el lanzamiento de nueva línea de auriculares premium",
-  },
-  {
-    title: "Sesión Corporativa StartUp",
-    category: "Corporativa",
-    coverImage:
-      "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=600&fit=crop",
-    slug: "sesion-corporativa-tech",
-    description:
-      "Retratos profesionales y fotografía de equipo para startup tecnológica en crecimiento",
-  },
-  {
-    title: "Evento Gala Benéfica",
-    category: "Eventos",
-    coverImage:
-      "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=600&fit=crop",
-    slug: "gala-benefica-2024",
-    description:
-      "Cobertura completa de gala benéfica anual con más de 300 asistentes",
-  },
-  {
-    title: "Joyería Artesanal Premium",
-    category: "Producto",
-    coverImage:
-      "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&h=600&fit=crop",
-    slug: "joyeria-artesanal",
-    description: "Catálogo fotográfico para marca de joyería artesanal de lujo",
-  },
-  {
-    title: "Boda en Jardín Botánico",
-    category: "Bodas",
-    coverImage:
-      "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800&h=600&fit=crop",
-    slug: "boda-jardin-botanico",
-    description:
-      "Ceremonia elegante rodeada de naturaleza y flores en plena primavera",
-  },
-  {
-    title: "Retratos Ejecutivos CEO",
-    category: "Corporativa",
-    coverImage:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=600&fit=crop",
-    slug: "retratos-ejecutivos",
-    description:
-      "Serie de retratos corporativos para perfiles ejecutivos y LinkedIn",
-  },
-  {
-    title: "Moda Sostenible 2024",
-    category: "Producto",
-    coverImage:
-      "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&h=600&fit=crop",
-    slug: "moda-sostenible",
-    description: "Lookbook para marca de moda sostenible y ética",
-  },
-  {
-    title: "Conferencia Tech Summit",
-    category: "Eventos",
-    coverImage:
-      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
-    slug: "tech-summit-2024",
-    description:
-      "Cobertura fotográfica de conferencia tecnológica de tres días",
-  },
-  {
-    title: "Boda Destino en Mallorca",
-    category: "Bodas",
-    coverImage:
-      "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=800&h=600&fit=crop",
-    slug: "boda-destino-mallorca",
-    description:
-      "Boda de destino en finca mallorquina con vistas al mediterráneo",
-  },
-  {
-    title: "Restaurante Gourmet",
-    category: "Producto",
-    coverImage:
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop",
-    slug: "restaurante-gourmet",
-    description:
-      "Fotografía gastronómica para menú y campaña de redes sociales",
-  },
-  {
-    title: "Oficinas Corporativas",
-    category: "Corporativa",
-    coverImage:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop",
-    slug: "oficinas-corporativas",
-    description: "Fotografía arquitectónica y de espacios para nuevas oficinas",
-  },
-];
+import { projects } from "../data/projects";
 
 const categories = ["Todos", "Bodas", "Producto", "Corporativa", "Eventos"];
 ---
@@ -279,6 +171,10 @@ const categories = ["Todos", "Bodas", "Producto", "Corporativa", "Eventos"];
 
 <script>
   function initProjectFilters() {
+    const firstBtn = document.querySelector(".filter-btn");
+    if (!firstBtn || (firstBtn as HTMLElement).dataset.filterInit === "true") return;
+    (firstBtn as HTMLElement).dataset.filterInit = "true";
+
     const filterButtons = document.querySelectorAll(".filter-btn");
     const dropdownOptions = document.querySelectorAll(".dropdown-option");
     const projectItems = document.querySelectorAll(".project-item");
