@@ -101,8 +101,8 @@ const gridClasses = {
 
   function showImage(index) {
     currentIndex = index;
-    lightboxImage.src = imageUrls[index];
-    lightbox.classList.remove("hidden");
+    if (lightboxImage) lightboxImage.src = imageUrls[index];
+    lightbox?.classList.remove("hidden");
   }
 
   galleryItems.forEach((item, index) => {
