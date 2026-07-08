@@ -104,27 +104,32 @@ const navLinks = [
     const button = document.getElementById("mobile-menu-button");
     const menu = document.getElementById("mobile-menu");
 
+    if (!button || !menu) return;
+    // Guard: solo inicializar una vez por instancia del DOM
+    if (button.dataset.menuInit === "true") return;
+    button.dataset.menuInit = "true";
+
     let menuJustOpened = false;
 
-    button?.addEventListener("click", () => {
-      menu?.classList.toggle("hidden");
-      if (!menu?.classList.contains("hidden")) {
+    button.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+      if (!menu.classList.contains("hidden")) {
         menuJustOpened = true;
         setTimeout(() => (menuJustOpened = false), 300);
       }
     });
 
-    const mobileLinks = menu?.querySelectorAll("a");
-    mobileLinks?.forEach((link) => {
+    const mobileLinks = menu.querySelectorAll("a");
+    mobileLinks.forEach((link) => {
       link.addEventListener("click", () => {
-        menu?.classList.add("hidden");
+        menu.classList.add("hidden");
       });
     });
 
     window.addEventListener("scroll", () => {
       if (menuJustOpened) return;
-      if (!menu?.classList.contains("hidden")) {
-        menu?.classList.add("hidden");
+      if (!menu.classList.contains("hidden")) {
+        menu.classList.add("hidden");
       }
     }, { passive: true });
   }
